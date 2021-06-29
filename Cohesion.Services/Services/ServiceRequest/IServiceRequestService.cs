@@ -9,5 +9,9 @@ namespace Cohesion.Services.Services.ServiceRequest
         List<ServiceRequestEntity> GetServiceRequests();
 
         ServiceRequestEntity GetById(Guid Id);
+
+        ServiceRequestEntity CreateNewServiceRequest(ServiceRequestEntity serviceRequest);
+
+        bool UpdateServiceRequest(Guid Id, ServiceRequestEntity serviceRequest);
     }
 }

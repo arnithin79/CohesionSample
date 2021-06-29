@@ -3,7 +3,6 @@ using Cohesion.Entities.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace Cohesion.Services.Repositories.BaseRepository
 {
@@ -25,7 +24,28 @@ namespace Cohesion.Services.Repositories.BaseRepository
 
         public T GetById(Guid id)
         {
-            return entity.FirstOrDefault();
+            return entity.FirstOrDefault(e => e.Id == id);
+        }
+
+        public T Create(T data)
+        {
+            if(data == null)
+            {
+                throw new ArgumentNullException("entity");
+            }
+            entity.Add(data);
+            _context.SaveChanges();
+            return data;
+        }
+
+        public void Update(T data)
+        {
+            if (data == null)
+            {
+                throw new ArgumentNullException("entity");
+            }
+
+            _context.SaveChanges();
         }
     }
 }

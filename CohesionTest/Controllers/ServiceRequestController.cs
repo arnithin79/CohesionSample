@@ -1,4 +1,5 @@
-﻿using Cohesion.Entities.Entities;
+﻿using Cohesion.Base.Enums;
+using Cohesion.Entities.Entities;
 using Cohesion.Services.Services.ServiceRequest;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -40,6 +41,42 @@ namespace CohesionTest.Controllers
             if(serviceRequest != null)
             {
                 return Ok(serviceRequest);
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
+        [HttpPost]
+        [Route("")]
+        public IActionResult CreateServiceRequest(ServiceRequest serviceRequest)
+        {
+            serviceRequest = _serviceRequestService.CreateNewServiceRequest(serviceRequest);
+            if(serviceRequest != null)
+            {
+                return Created(typeof(ServiceRequestController).Name, serviceRequest.Id);
+            }
+            else
+            {
+                return BadRequest();
+            }
+
+        }
+
+        [HttpPut]
+        [Route("{id}")]
+        public IActionResult UpdateServiceRequest(Guid id, ServiceRequest serviceRequest)
+        {
+            if(id == Guid.Empty || serviceRequest == null || serviceRequest.Id == Guid.Empty)
+            {
+                return BadRequest();
+            }
+
+            bool isServiceRequestUpdated = _serviceRequestService.UpdateServiceRequest(id, serviceRequest);
+            if(isServiceRequestUpdated)
+            {
+                return Ok("Updated Service Request");
             }
             else
             {

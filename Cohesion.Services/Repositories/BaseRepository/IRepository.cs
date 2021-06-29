@@ -8,5 +8,9 @@ namespace Cohesion.Services.Repositories.BaseRepository
         IQueryable<T> GetAll();
 
         T GetById(Guid id);
+
+        T Create(T data);
+
+        void Update(T data);
     }
 }
