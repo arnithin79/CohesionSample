@@ -5,6 +5,12 @@ VisualStudioVersion = 16.0.31321.278
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CohesionTest", "CohesionTest\CohesionTest.csproj", "{0EA49653-28D1-4661-A815-8356FCD6BE0A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cohesion.Entities", "Cohesion.Entities\Cohesion.Entities.csproj", "{3A2F275C-1F31-4FCE-8F43-A34F4603E2A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cohesion.Base", "Cohesion.Base\Cohesion.Base.csproj", "{513C5702-D1D5-4573-AFA2-E712A609E767}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cohesion.Services", "Cohesion.Services\Cohesion.Services.csproj", "{CA805362-0463-40B3-A511-02CCC1496D93}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +21,18 @@ Global
 		{0EA49653-28D1-4661-A815-8356FCD6BE0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0EA49653-28D1-4661-A815-8356FCD6BE0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0EA49653-28D1-4661-A815-8356FCD6BE0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A2F275C-1F31-4FCE-8F43-A34F4603E2A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A2F275C-1F31-4FCE-8F43-A34F4603E2A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A2F275C-1F31-4FCE-8F43-A34F4603E2A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A2F275C-1F31-4FCE-8F43-A34F4603E2A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{513C5702-D1D5-4573-AFA2-E712A609E767}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{513C5702-D1D5-4573-AFA2-E712A609E767}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{513C5702-D1D5-4573-AFA2-E712A609E767}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{513C5702-D1D5-4573-AFA2-E712A609E767}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA805362-0463-40B3-A511-02CCC1496D93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA805362-0463-40B3-A511-02CCC1496D93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA805362-0463-40B3-A511-02CCC1496D93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA805362-0463-40B3-A511-02CCC1496D93}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
