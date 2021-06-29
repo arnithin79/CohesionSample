@@ -12,7 +12,7 @@ namespace Cohesion.Entities.Entities
 
         public string Description { get; set; }
 
-        //[RequiredEnumField(ErrorMessage = "Enter valid current Status")]
+        [RequiredEnumField(ErrorMessage = "Enter valid current Status")]
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public CurrentStatus CurrentStatus { get; set; }
 

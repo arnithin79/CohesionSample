@@ -2,7 +2,9 @@ using Cohesion.Entities;
 using Cohesion.Services.Repositories.BaseRepository;
 using Cohesion.Services.Services.ServiceRequest;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -49,9 +51,21 @@ namespace CohesionTest
 
             app.UseHttpsRedirection();
 
+            app.UseExceptionHandler(exc =>
+            {
+                exc.Run(async context =>
+                {
+                    var exceptionHandlerPathFeature = context.Features.Get<IExceptionHandlerPathFeature>();
+                    var exception = exceptionHandlerPathFeature.Error;
+
+                    await context.Response.WriteAsJsonAsync(new { error = exception.Message });
+                });
+            });
+
             app.UseRouting();
 
             app.UseAuthorization();
+
 
             app.UseEndpoints(endpoints =>
             {

@@ -13,5 +13,7 @@ namespace Cohesion.Services.Services.ServiceRequest
         ServiceRequestEntity CreateNewServiceRequest(ServiceRequestEntity serviceRequest);
 
         bool UpdateServiceRequest(Guid Id, ServiceRequestEntity serviceRequest);
+
+        bool DeleteServiceRequest(Guid Id);
     }
 }

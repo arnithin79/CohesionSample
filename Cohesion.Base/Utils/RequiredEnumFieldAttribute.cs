@@ -14,6 +14,6 @@ namespace Cohesion.Base.Utils
 
             var type = value.GetType();
             return type.IsEnum && Enum.IsDefined(type, value);
-        }
+        }   
     }
 }

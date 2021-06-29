@@ -48,5 +48,10 @@ namespace Cohesion.Services.Services.ServiceRequest
             }
             return false;
         }
+
+        public bool DeleteServiceRequest(Guid Id)
+        {
+            return _serviceRequestRepository.Delete(Id);
+        }
     }
 }

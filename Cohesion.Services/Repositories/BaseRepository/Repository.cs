@@ -47,5 +47,21 @@ namespace Cohesion.Services.Repositories.BaseRepository
 
             _context.SaveChanges();
         }
+
+        public bool Delete(Guid id)
+        {
+            if(id == Guid.Empty)
+            {
+                throw new ArgumentNullException("entity");
+            }
+            T data = GetById(id);
+            if(data != null)
+            {
+                _context.Remove(data);
+                _context.SaveChanges();
+                return true;
+            }
+            return false;
+        }
     }
 }

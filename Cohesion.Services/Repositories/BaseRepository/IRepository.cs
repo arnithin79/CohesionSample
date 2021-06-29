@@ -12,5 +12,7 @@ namespace Cohesion.Services.Repositories.BaseRepository
         T Create(T data);
 
         void Update(T data);
+
+        bool Delete(Guid id);
     }
 }

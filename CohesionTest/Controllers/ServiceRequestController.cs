@@ -1,5 +1,4 @@
-﻿using Cohesion.Base.Enums;
-using Cohesion.Entities.Entities;
+﻿using Cohesion.Entities.Entities;
 using Cohesion.Services.Services.ServiceRequest;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -82,6 +81,18 @@ namespace CohesionTest.Controllers
             {
                 return NotFound();
             }
+        }
+
+        [HttpDelete]
+        [Route("{id}")]
+        public IActionResult DeleteServiceRequest(Guid id)
+        {
+            bool isServiceRequestDeleted = _serviceRequestService.DeleteServiceRequest(id);
+            if(isServiceRequestDeleted)
+            {
+                return Created("DeleteServiceRequest", "Successfully deleted service request");
+            }
+            return NotFound();
         }
     }
 }
