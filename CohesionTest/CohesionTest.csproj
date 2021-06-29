@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Cohesion.Entities\Cohesion.Entities.csproj" />
+    <ProjectReference Include="..\Cohesion.Services\Cohesion.Services.csproj" />
   </ItemGroup>
 
 </Project>

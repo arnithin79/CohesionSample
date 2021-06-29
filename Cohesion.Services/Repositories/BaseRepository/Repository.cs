@@ -1,6 +1,9 @@
 ﻿using Cohesion.Entities;
 using Cohesion.Entities.Entities;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Cohesion.Services.Repositories.BaseRepository
 {
@@ -15,5 +18,14 @@ namespace Cohesion.Services.Repositories.BaseRepository
             entity = _context.Set<T>();
         }
 
+        public IQueryable<T> GetAll()
+        {
+            return entity.AsQueryable();
+        }
+
+        public T GetById(Guid id)
+        {
+            return entity.FirstOrDefault();
+        }
     }
 }

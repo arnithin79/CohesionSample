@@ -1,4 +1,6 @@
 using Cohesion.Entities;
+using Cohesion.Services.Repositories.BaseRepository;
+using Cohesion.Services.Services.ServiceRequest;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -25,6 +27,10 @@ namespace CohesionTest
             services.AddControllers();
 
             services.AddDbContext<CohesionDBContext>(opt => opt.UseInMemoryDatabase(databaseName: "CohesionTest"));
+
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            services.AddScoped<IServiceRequestService, ServiceRequestService>();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CohesionTest", Version = "v1" });
