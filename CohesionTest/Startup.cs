@@ -1,5 +1,7 @@
+using Cohesion.Base.Models;
 using Cohesion.Entities;
 using Cohesion.Services.Repositories.BaseRepository;
+using Cohesion.Services.Services.EmailService;
 using Cohesion.Services.Services.ServiceRequest;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
@@ -30,8 +32,13 @@ namespace CohesionTest
 
             services.AddDbContext<CohesionDBContext>(opt => opt.UseInMemoryDatabase(databaseName: "CohesionTest"));
 
+            IConfigurationSection emailSettingsSection = Configuration.GetSection("EmailSettings");
+            services.Configure<EmailSettings>(emailSettingsSection);
+
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddScoped<IServiceRequestService, ServiceRequestService>();
+
+            services.AddSingleton<IEmailService, EmailService>();
 
             services.AddSwaggerGen(c =>
             {
