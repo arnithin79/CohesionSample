@@ -2,6 +2,7 @@ using Cohesion.Base.Models;
 using Cohesion.Entities;
 using Cohesion.Services.Repositories.BaseRepository;
 using Cohesion.Services.Services.EmailService;
+using Cohesion.Services.Services.FakeService;
 using Cohesion.Services.Services.ServiceRequest;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
